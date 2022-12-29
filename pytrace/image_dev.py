@@ -1,27 +1,6 @@
 import numpy as np
 import pandas as pd
 
-class vec3:
-    def __init__(self, x: int, y: int, z: int) -> None:
-        """Constructer for 3D Vector"""
-        self.x = float(x)
-        self.y = float(y)
-        self.z = float(z)
-
-    def _negate(self):
-        return vec3(-self.x, -self.y, -self.z)
-
-    def add(self, other):
-        return vec3(self.x + other.x, self.y + other.y, self.z + other.z)
-
-    def sub(self, other):
-        return vec3(self.x - other.x, self.y - other.y, self.z - other.z)
-
-    def mul(self, other):
-        return vec3(self.x * other.x, self.y * other.y, self.z * other.z)
-
-    def div(self, other):
-        return vec3(self.x / other.x, self.y / other.y, self.z / other.z)
 
 def build_image():
     """

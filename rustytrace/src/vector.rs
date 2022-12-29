@@ -1,4 +1,5 @@
 use std::ops::{Add, AddAssign, Div, DivAssign, Index, IndexMut, Mul, MulAssign, Sub, SubAssign};
+use std::fmt;
 
 pub struct Vec3 {
     e: [f64; 3], // array of length 3 of f64 type
@@ -110,4 +111,44 @@ impl DivAssign<f64> for Vec3 {
     }
 }
 
+// Utility Functions
+// Collect the elements of the vector
+pub fn x(self) -> f64 {
+    self[0]
+}
 
+pub fn y(self) -> f64 {
+    self[1]
+}
+
+pub fn z(self) -> f64 {
+    self[2]
+}
+
+pub fn dot(self, other: Vec3) -> f64 {
+    self[0] * other[0] + self[1] * other[1] + self[2] * other[2]
+}
+
+pub fn length(self) -> f64 {
+    self.dot(self).sqrt()
+}
+
+pub fn cross(self, other: Vec3) -> Vec3 {
+    Vec3 {
+        e: [
+            self[1] * other[2] - self[2] * other[1],
+            self[2] * other[0] - self[0] * other[2],
+            self[0] * other[1] - self[1] * other[0]
+            ],
+}
+
+pub fn normalized(self) -> Vec3 {
+    self / self.length()
+}
+
+// To Display the vec3 representation
+impl fmt::Display for Vec3 {
+    fn fmt(&self, f: &mut Formatter) -> fmt::Result {
+        write!(f, "[{}, {}, {}]", self[0], self[1], self[2])
+    }
+}
