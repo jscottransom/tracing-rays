@@ -1,6 +1,7 @@
 import numpy as np
 import pandas as pd
 
+from vec3 import vec3
 
 def build_image():
     """
@@ -20,18 +21,12 @@ def build_image():
 
     print(f"P3\n{image_width} {image_height} \n255\n")
 
-    for num in range(image_height-1, -1, -1):
-        print(f"\rScanlines remaining: {num}")
-        for secnum in range(0, image_width, 1):
-            r = float(secnum)/ (image_width - 1)
-            g = float(num) / (image_height - 1)
-            b = 0.25
-
-            ir = int(255.999 * r)
-            ig = int(255.999 * g)
-            ib = int(255.999 * b)
-
-            print(f"{ir} {ig} {ib}\n")
+    for j in range(image_height-1, -1, -1):
+        # print(f"\rScanlines remaining: {j}")
+        for i in range(0, image_width, 1):
+            pixel_color = vec3( i / (image_width - 1), j / (image_height - 1), 0.25)
+                
+            print(f"{pixel_color.x} {pixel_color.y} {pixel_color.z}\n")
     print("\nDone\n")
 
 if __name__ == "__main__":

@@ -33,3 +33,6 @@ class vec3:
 
     def normalized(self):
         return self / self.length()
+
+    def format_color(self): 
+        print(f"{255.999 * self.x} {255.999 * self.y} {255.999 * self.z}\n")
