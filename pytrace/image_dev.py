@@ -5,7 +5,7 @@ from vec3 import vec3
 
 def build_image():
     """
-    Simple functio to generate a static ppm file.
+    Simple function to generate a static ppm file.
 
     To call this and export to a ppm file, run python image_dev.py > {file_name}.ppm
     Then, open the PPM in a viewer to review the image.
