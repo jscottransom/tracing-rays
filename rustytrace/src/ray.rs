@@ -1,6 +1,6 @@
-use super::vec::{Vec3, Point3};
+use super::vector::{Vec3, Point3};
 
-struct Ray {
+pub struct Ray {
     origin: Point3,
     dir: Vec3,
 }
@@ -14,10 +14,10 @@ impl Ray {
     }
     
     pub fn origin(&self) -> &Point3 {
-        self.origin
+       &self.origin
     }
     pub fn direction(&self) -> &Vec3 {
-        self.dir
+        &self.dir
     }
 
     pub fn at(&self, t: f64) -> Point3 {
